@@ -9,6 +9,8 @@ public interface IUserStatisticService {
 
     UserStatistic getStatistic(UUID statisticId);
 
+    UserStatistic getStatisticByUserId(UUID userId);
+
     void updateStatistic(UUID statisticId, UserStatistic userStatistic);
 
     void removeStatistic(UUID statisticId);
