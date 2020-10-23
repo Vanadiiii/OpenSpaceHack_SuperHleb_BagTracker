@@ -1,8 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.controller.dto.UserDataDto;
 import com.example.demo.controller.dto.UserDto;
-import com.example.demo.controller.mappers.UserDataDtoWebMapper;
+import com.example.demo.controller.mappers.UserUserDtoMapper;
 import com.example.demo.controller.mappers.UserWebMapper;
 import com.example.demo.domain.entity.User;
 import com.example.demo.domain.sevice.IUserService;
@@ -18,7 +17,7 @@ import java.util.UUID;
 public class UserController {
     private final IUserService userService;
     private final UserWebMapper userWebMapper;
-    private final UserDataDtoWebMapper userDataDtoWebMapper;
+    private final UserUserDtoMapper userUserDtoMapper;
 
     @GetMapping("/{userId}")
     public ResponseEntity<UserDto> getUser(@PathVariable UUID userId) {
@@ -28,9 +27,9 @@ public class UserController {
     @PutMapping("/{userId}")
     public ResponseEntity<Void> updatePersonalInfo(
             @PathVariable UUID userId,
-            @RequestBody UserDataDto userDataDto
+            @RequestBody UserDto userDto
     ) {
-        User user = userDataDtoWebMapper.apply(userDataDto);
+        User user = userUserDtoMapper.apply(userDto);
         userService.updateUser(userId, user);
         return ResponseEntity.ok().build();
     }
