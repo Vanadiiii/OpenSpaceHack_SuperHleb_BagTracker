@@ -1,13 +1,18 @@
-package com.example.demo.controller;
+package com.example.demo.web;
 
-import com.example.demo.controller.dto.UserDto;
-import com.example.demo.controller.mappers.UserUserDtoMapper;
-import com.example.demo.controller.mappers.UserWebMapper;
 import com.example.demo.domain.entity.User;
 import com.example.demo.domain.sevice.IUserService;
+import com.example.demo.web.dto.UserDto;
+import com.example.demo.web.mappers.UserUserDtoMapper;
+import com.example.demo.web.mappers.UserWebMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
 

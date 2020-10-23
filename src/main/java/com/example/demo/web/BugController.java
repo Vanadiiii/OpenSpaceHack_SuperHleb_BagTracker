@@ -1,12 +1,12 @@
-package com.example.demo.controller;
+package com.example.demo.web;
 
-import com.example.demo.controller.dto.BugDataDto;
-import com.example.demo.controller.dto.BugDto;
-import com.example.demo.controller.mappers.BugDataDtoWebMapper;
-import com.example.demo.controller.mappers.BugDtoWebMapper;
-import com.example.demo.controller.mappers.BugWebMapper;
 import com.example.demo.domain.sevice.IBugService;
 import com.example.demo.enums.BugStatus;
+import com.example.demo.web.dto.BugDataDto;
+import com.example.demo.web.dto.BugDto;
+import com.example.demo.web.mappers.BugDataDtoWebMapper;
+import com.example.demo.web.mappers.BugDtoWebMapper;
+import com.example.demo.web.mappers.BugWebMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;

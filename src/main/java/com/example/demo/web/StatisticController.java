@@ -1,8 +1,8 @@
-package com.example.demo.controller;
+package com.example.demo.web;
 
-import com.example.demo.controller.dto.StatisticDto;
-import com.example.demo.controller.mappers.StatisticWebMapper;
 import com.example.demo.domain.sevice.IStatisticService;
+import com.example.demo.web.dto.StatisticDto;
+import com.example.demo.web.mappers.StatisticWebMapper;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -4,12 +4,13 @@ import com.example.demo.enums.BugStatus;
 import com.example.demo.enums.ProductType;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.GenericGenerator;
+import org.hibernate.annotations.Type;
 
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
@@ -24,7 +25,9 @@ import java.util.UUID;
 @NoArgsConstructor
 public class Bug {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GenericGenerator(name = "uuid2", strategy = "uuid2")
+    @GeneratedValue(generator = "uuid2")
+    @Type(type = "uuid-char")
     private UUID id;
     @Enumerated(value = EnumType.STRING)
     private ProductType productType;

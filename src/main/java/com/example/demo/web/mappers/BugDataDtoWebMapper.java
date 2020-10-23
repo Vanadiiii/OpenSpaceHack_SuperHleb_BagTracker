@@ -1,7 +1,7 @@
-package com.example.demo.controller.mappers;
+package com.example.demo.web.mappers;
 
-import com.example.demo.controller.dto.BugDataDto;
 import com.example.demo.domain.entity.Bug;
+import com.example.demo.web.dto.BugDataDto;
 import org.mapstruct.Mapper;
 
 import java.util.function.Function;
