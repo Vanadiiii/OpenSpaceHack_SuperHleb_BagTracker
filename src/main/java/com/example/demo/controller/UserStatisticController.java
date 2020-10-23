@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.entity.UserStatistic;
-import com.example.demo.sevice.IUserStatisticService;
+import com.example.demo.domain.sevice.IUserStatisticService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 

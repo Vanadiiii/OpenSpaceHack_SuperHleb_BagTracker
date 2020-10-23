@@ -1,8 +1,8 @@
-package com.example.demo.sevice.impl;
+package com.example.demo.domain.sevice.impl;
 
 import com.example.demo.domain.entity.User;
 import com.example.demo.domain.impl.UserDomainService;
-import com.example.demo.sevice.IUserService;
+import com.example.demo.domain.sevice.IUserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

@@ -1,7 +1,7 @@
-package com.example.demo.sevice.impl;
+package com.example.demo.domain.sevice.impl;
 
 import com.example.demo.domain.entity.UserStatistic;
-import com.example.demo.sevice.IUserStatisticService;
+import com.example.demo.domain.sevice.IUserStatisticService;
 
 import java.util.UUID;
 

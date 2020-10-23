@@ -1,4 +1,4 @@
-package com.example.demo.sevice;
+package com.example.demo.domain.sevice;
 
 import com.example.demo.domain.entity.UserStatistic;
 
