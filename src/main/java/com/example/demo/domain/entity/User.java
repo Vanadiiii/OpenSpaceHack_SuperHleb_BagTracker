@@ -21,4 +21,5 @@ public class User {
     private String login;
     private String password;
     private long rating;
+    private long coins;
 }
