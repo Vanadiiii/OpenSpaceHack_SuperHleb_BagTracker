@@ -12,7 +12,7 @@ import java.util.UUID;
 @Data
 @AllArgsConstructor
 @Builder
-public class UserStatistic {
+public class Statistic {
     private final UUID userId;
     private List<UUID> bugIdList;
     private List<UUID> achievementIdList;
