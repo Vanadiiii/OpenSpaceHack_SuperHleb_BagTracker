@@ -1,6 +1,7 @@
 package com.example.demo.domain.sevice;
 
 import com.example.demo.domain.entity.Bug;
+import com.example.demo.enums.BugStatus;
 
 import java.util.UUID;
 
@@ -9,13 +10,13 @@ public interface IBugService {
 
     UUID createBug(Bug apply);
 
-    void updateBug();
+    void updateBug(UUID bugId, Bug apply);
 
-    void deleteBug();
+    void deleteBug(UUID bugId);
 
-    void updateBugStatus();
+    void updateBugStatus(UUID bugId, BugStatus status);
 
-    void appointBugTester();
+    void appointBugTester(UUID bugId, UUID qaId);
 
-    void relateBugs();
+    void relateBugs(UUID parentBugId, UUID childBugId);
 }
