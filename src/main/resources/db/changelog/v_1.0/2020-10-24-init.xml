@@ -27,8 +27,80 @@
             <column name="user_id" type="varchar(36)"/>
             <column name="name" type="varchar(40)"/>
             <column name="definition" type="varchar(40)"/>
-            <column name="coin" type="integer"/>
+            <column name="cost" type="integer"/>
         </createTable>
+
+        <createTable tableName="usr">
+            <column name="id" type="varchar(36)">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="role_id" type="varchar(36)"/>
+            <column name="mail" type="varchar(128)"/>
+            <column name="phone" type="varchar(16)"/>
+            <column name="fio" type="varchar(128)"/>
+            <column name="login" type="varchar(64)"/>
+            <column name="password" type="varchar(64)"/>
+            <column name="rating" type="integer"/>
+            <column name="coins" type="integer"/>
+        </createTable>
+
+        <createTable tableName="usr_role">
+            <column name="id" type="varchar(36)">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="varchar(36)"/>
+            <column name="role" type="varchar(20)"/>
+        </createTable>
+
+        <createTable tableName="message">
+            <column name="id" type="varchar(36)">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="text" type="varchar(2048)"/>
+            <column name="creation_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+            <column name="user_id" type="varchar(36)"/>
+        </createTable>
+
+        <createTable tableName="comment">
+            <column name="id" type="varchar(36)">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="varchar(36)"/>
+            <column name="bug_id" type="varchar(36)"/>
+            <column name="text" type="varchar(2048)"/>
+            <column name="create_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
+        </createTable>
+
+        <addForeignKeyConstraint
+                baseTableName="achievement"
+                baseColumnNames="user_id"
+                constraintName="user_achievement_fk"
+                referencedTableName="usr"
+                referencedColumnNames="id"/>
+        <addForeignKeyConstraint
+                baseTableName="usr_role"
+                baseColumnNames="user_id"
+                constraintName="user_role_fk"
+                referencedTableName="usr"
+                referencedColumnNames="id"/>
+        <addForeignKeyConstraint
+                baseTableName="message"
+                baseColumnNames="user_id"
+                constraintName="user_message_fk"
+                referencedTableName="usr"
+                referencedColumnNames="id"/>
+        <addForeignKeyConstraint
+                baseTableName="comment"
+                baseColumnNames="user_id"
+                constraintName="user_comment_fk"
+                referencedTableName="usr"
+                referencedColumnNames="id"/>
+        <addForeignKeyConstraint
+                baseTableName="comment"
+                baseColumnNames="bug_id"
+                constraintName="bug_comment_fk"
+                referencedTableName="bug"
+                referencedColumnNames="id"/>
     </changeSet>
 
 </databaseChangeLog>
