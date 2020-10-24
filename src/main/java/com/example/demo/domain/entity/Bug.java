@@ -32,7 +32,7 @@ public class Bug {
     private String phoneModel;
     private String osVersion;
     private String productVersion;
-    @OneToMany(mappedBy = "bug", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "bug_id")
     private List<PlaybackStep> playbackSteps;
     private String screenUrl;
