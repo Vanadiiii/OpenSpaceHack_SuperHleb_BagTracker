@@ -1,10 +1,9 @@
-package com.example.demo.domain.sevice;
+package com.example.demo.domain;
 
 import com.example.demo.domain.entity.Statistic;
 
 import java.util.UUID;
 
-public interface IStatisticService {
-
+public interface IStatisticDomainService {
     Statistic getStatistic(UUID userId);
 }

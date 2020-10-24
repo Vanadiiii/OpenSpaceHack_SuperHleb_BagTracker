@@ -2,6 +2,7 @@ package com.example.demo.web.dto;
 
 import com.example.demo.enums.BugStatus;
 import com.example.demo.enums.ProductType;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Value;
 
@@ -11,6 +12,7 @@ import java.util.UUID;
 
 @Value
 @Builder
+@AllArgsConstructor
 public class BugDto {
     private UUID id;
     private ProductType productType;

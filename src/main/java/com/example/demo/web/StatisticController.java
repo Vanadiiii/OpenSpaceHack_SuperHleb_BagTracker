@@ -16,11 +16,11 @@ import java.util.UUID;
 @RequiredArgsConstructor
 @RequestMapping("/statistic")
 public class StatisticController {
-    private final IStatisticService statisticService;
     private final StatisticWebMapper statisticWebMapper;
+    private final IStatisticService statisticService;
 
-    @GetMapping("/{statisticId}")
-    public ResponseEntity<StatisticDto> getStatistics(@PathVariable UUID statisticId) {
-        return ResponseEntity.ok(statisticWebMapper.apply(statisticService.getStatistic(statisticId)));
+    @GetMapping("/{userId}")
+    public ResponseEntity<StatisticDto> getStatistic(@PathVariable UUID userId) {
+        return ResponseEntity.ok(statisticWebMapper.apply(statisticService.getStatistic(userId)));
     }
 }
