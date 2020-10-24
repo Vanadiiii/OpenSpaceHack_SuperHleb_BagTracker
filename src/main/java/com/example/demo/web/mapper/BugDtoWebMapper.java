@@ -8,4 +8,5 @@ import java.util.function.Function;
 
 @Mapper(componentModel = "spring")
 public interface BugDtoWebMapper extends Function<BugDto, Bug> {
+
 }
