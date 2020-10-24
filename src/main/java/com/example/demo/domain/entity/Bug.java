@@ -1,6 +1,7 @@
 package com.example.demo.domain.entity;
 
 import com.example.demo.enums.BugStatus;
+import com.example.demo.enums.BugType;
 import com.example.demo.enums.ProductType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -38,6 +39,8 @@ public class Bug {
     private String screenUrl;
     @Enumerated(value = EnumType.STRING)
     private BugStatus bugStatus;
+    @Enumerated(value = EnumType.STRING)
+    private BugType bugType;
     @ManyToOne
     private User author;
     @ManyToOne
@@ -46,4 +49,5 @@ public class Bug {
     @JoinColumn(name = "user_id")
     private List<Comment> comments;
     private Integer cost;
+    private Boolean isDuplicate;
 }

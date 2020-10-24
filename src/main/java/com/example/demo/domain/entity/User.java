@@ -34,4 +34,8 @@ public class User {
     private String password;
     private long rating;
     private long coins;
+
+    public void addCoins(long coins) {
+        this.coins += coins;
+    }
 }

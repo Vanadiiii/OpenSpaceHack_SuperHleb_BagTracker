@@ -9,6 +9,6 @@ public class CalculationCostDomainService implements ICalculationCostDomainServi
 
     @Override
     public Bug calculation(Bug bug) {
-        return null;
+        return bug;
     }
 }

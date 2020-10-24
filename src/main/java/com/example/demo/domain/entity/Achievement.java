@@ -25,5 +25,5 @@ public class Achievement {
     private UUID userId;
     private String name;
     private String definition;
-    private long coin;
+    private Long cost;
 }
