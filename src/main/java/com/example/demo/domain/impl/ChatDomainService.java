@@ -21,6 +21,6 @@ public class ChatDomainService implements IChatDomainService {
 
     @Override
     public void createMessage(Message message) {
-
+        chatRepository.save(message);
     }
 }
