@@ -2,20 +2,14 @@ package com.example.demo.domain.entity;
 
 import com.example.demo.enums.BugStatus;
 import com.example.demo.enums.ProductType;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
@@ -24,6 +18,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "bug")
 @Builder
+@AllArgsConstructor
 @NoArgsConstructor
 public class Bug {
     @Id
@@ -37,7 +32,8 @@ public class Bug {
     private String phoneModel;
     private String osVersion;
     private String productVersion;
-    @OneToMany
+    @OneToMany(mappedBy = "bug", fetch = FetchType.LAZY)
+    @JoinColumn(name = "bug_id")
     private List<PlaybackStep> playbackSteps;
     private String screenUrl;
     @Enumerated(value = EnumType.STRING)
@@ -46,7 +42,8 @@ public class Bug {
     private User author;
     @ManyToOne
     private User reviewer;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "user_id")
     private List<Comment> comments;
     private Integer cost;
 }

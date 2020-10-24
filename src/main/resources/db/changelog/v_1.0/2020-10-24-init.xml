@@ -26,24 +26,3 @@
     </changeSet>
 
 </databaseChangeLog>
-
-
-        private UUID id;
-        private ProductType productType;
-        private LocalDateTime creationData;
-        private String phoneModel;
-        private String osVersion;
-        private String productVersion;
-        @OneToMany
-        private List<PlaybackStep>playbackSteps;
-private String screenUrl;
-@Enumerated(value = EnumType.STRING)
-private BugStatus bugStatus;
-@ManyToOne
-private User author;
-@ManyToOne
-private User reviewer;
-@OneToMany
-private List
-<Comment>comments;
-    private Integer cost;
