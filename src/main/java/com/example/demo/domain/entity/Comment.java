@@ -6,11 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
@@ -26,6 +22,7 @@ public class Comment {
     private UUID id;
     @ManyToOne
     private User user;
+    @ManyToOne
     private Bug bug;
     private String text;
     private LocalDateTime createDate;

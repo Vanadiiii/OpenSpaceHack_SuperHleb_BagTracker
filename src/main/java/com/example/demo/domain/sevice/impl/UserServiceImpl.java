@@ -36,6 +36,6 @@ public class UserServiceImpl implements IUserService {
 
     @Override
     public void removeUser(UUID userId) {
-
+        userDomainService.remove(userId);
     }
 }

@@ -6,10 +6,12 @@ import com.example.demo.domain.entity.Bug;
 import com.example.demo.domain.entity.User;
 import com.example.demo.domain.mapper.BugPatcher;
 import com.example.demo.domain.repository.IBugRepository;
-import com.example.demo.domain.repository.UserRepository;
+import com.example.demo.domain.repository.IUserRepository;
+import com.example.demo.enums.UserRoles;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.UUID;
 
 @Component
@@ -18,11 +20,21 @@ public class BugDomainService implements IBugDomainService {
     private final BugPatcher bugPatcher;
     private final ICalculationCostDomainService calculationCostDomainService;
     private final IBugRepository bugRepository;
-    private final UserRepository userRepository;
+    private final IUserRepository userRepository;
 
     @Override
     public Bug getBug(UUID bugId) {
         return bugRepository.findById(bugId).orElseThrow();
+    }
+
+    @Override
+    public List<Bug> getBugsByAuthorId(UUID userId) {// TODO: 24/10/20
+        return null;
+    }
+
+    @Override
+    public List<Bug> getBugsByReviewerId(UUID userId) {// TODO: 24/10/20
+        return null;
     }
 
     @Override
@@ -46,8 +58,12 @@ public class BugDomainService implements IBugDomainService {
 
     @Override
     public void appointBugTester(UUID bugId, UUID qaId) {
-        User qa = userRepository.findById(qaId).filter(user -> user.getRoles().contains(QA)).orElseThrow();
-        Bug bug = bugRepository.findById(bugId).filter(itBug -> itBug.getReviewer() == null).orElseThrow();
+        User qa = userRepository.findById(qaId)
+                .filter(user -> user.getRoles().contains(UserRoles.ROLE_QA))
+                .orElseThrow();
+        Bug bug = bugRepository.findById(bugId)
+                .filter(itBug -> itBug.getReviewer() == null)
+                .orElseThrow();
         bug.setReviewer(qa);
         bugRepository.save(bug);
     }
