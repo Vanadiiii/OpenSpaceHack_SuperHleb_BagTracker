@@ -16,11 +16,11 @@ public class ChatDomainService implements IChatDomainService {
 
     @Override
     public Page<Message> getMessages(Pageable pageable) {
-        return null;
+        return chatRepository.findAll(pageable);
     }
 
     @Override
     public void createMessage(Message message) {
-
+        chatRepository.save(message);
     }
 }

@@ -1,6 +1,7 @@
 package com.example.demo.domain.entity;
 
 import com.example.demo.enums.BugStatus;
+import com.example.demo.enums.BugType;
 import com.example.demo.enums.ProductType;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -32,12 +33,14 @@ public class Bug {
     private String phoneModel;
     private String osVersion;
     private String productVersion;
-    @OneToMany(mappedBy = "bug", fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.LAZY)
     @JoinColumn(name = "bug_id")
     private List<PlaybackStep> playbackSteps;
     private String screenUrl;
     @Enumerated(value = EnumType.STRING)
     private BugStatus bugStatus;
+    @Enumerated(value = EnumType.STRING)
+    private BugType bugType;
     @ManyToOne
     private User author;
     @ManyToOne
@@ -45,5 +48,6 @@ public class Bug {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id")
     private List<Comment> comments;
-    private Integer cost;
+    private Long cost;
+    private Boolean isDuplicate;
 }

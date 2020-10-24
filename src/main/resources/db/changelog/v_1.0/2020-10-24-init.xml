@@ -2,10 +2,9 @@
 <databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
                    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
-    VARCHAR(36)
     <changeSet id="2020-10-24--01-init-db" author="neliseev">
         <createTable tableName="bug">
-            <column name="id" type="VARCHAR(36)">
+            <column name="id" type="varchar(36)">
                 <constraints primaryKey="true" unique="true" nullable="false"/>
             </column>
             <column name="product_type" type="varchar(36)"/>
@@ -18,10 +17,17 @@
             <column name="reviewer_id" type="varchar(36)"/>
             <column name="status" type="varchar(64)"/>
             <column name="cost" type="integer"/>
+            <column name="is_duplicate" type="boolean"/>
         </createTable>
 
-        <createTable tableName="">
-            <column name=""></column>
+        <createTable tableName="achievement">
+            <column name="id" type="varchar(36)">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="user_id" type="varchar(36)"/>
+            <column name="name" type="varchar(40)"/>
+            <column name="definition" type="varchar(40)"/>
+            <column name="coin" type="integer"/>
         </createTable>
     </changeSet>
 

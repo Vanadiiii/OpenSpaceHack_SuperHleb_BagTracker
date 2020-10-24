@@ -15,7 +15,5 @@ public interface IUserDomainService {
 
     void update(UUID userId, User user);
 
-    void updateStatistic(UUID userId, Statistic newStatistic);
-
     void remove(UUID userId);
 }

@@ -2,6 +2,7 @@ package com.example.demo.domain.impl;
 
 import com.example.demo.domain.IBugDomainService;
 import com.example.demo.domain.ICalculationCostDomainService;
+import com.example.demo.domain.IUserDomainService;
 import com.example.demo.domain.entity.Bug;
 import com.example.demo.domain.entity.User;
 import com.example.demo.domain.mapper.BugPatcher;
@@ -21,6 +22,7 @@ public class BugDomainService implements IBugDomainService {
     private final ICalculationCostDomainService calculationCostDomainService;
     private final IBugRepository bugRepository;
     private final IUserRepository userRepository;
+    private final IUserDomainService userDomainService;
 
     @Override
     public Bug getBug(UUID bugId) {

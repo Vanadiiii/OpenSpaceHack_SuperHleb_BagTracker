@@ -1,7 +1,6 @@
 package com.example.demo.domain.impl;
 
 import com.example.demo.domain.IUserDomainService;
-import com.example.demo.domain.entity.Statistic;
 import com.example.demo.domain.entity.User;
 import com.example.demo.domain.exception.NoFoundUserException;
 import com.example.demo.domain.repository.IUserRepository;
@@ -37,11 +36,6 @@ public class UserDomainService implements IUserDomainService {
     @Override
     public void update(UUID userId, User user) {
         userRepository.save(userPatcher.apply(user, getUser(userId)));
-    }
-
-    @Override
-    public void updateStatistic(UUID userId, Statistic newStatistic) {
-        // TODO: 24/10/20
     }
 
     @Override
