@@ -13,7 +13,7 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 public class StatisticDto {
-    private User user;
-    private List<Bug> bugList;
-    private List<Achievement> achievementList;
+    private UserDto user;
+    private List<BugDto> bugList;
+    private List<AchievementDto> achievementList;
 }
