@@ -8,7 +8,7 @@ import com.example.demo.domain.entity.User;
 import com.example.demo.domain.mapper.BugPatcher;
 import com.example.demo.domain.repository.IBugRepository;
 import com.example.demo.domain.repository.IUserRepository;
-import com.example.demo.enums.UserRoles;
+import com.example.demo.enums.UserRole;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -61,7 +61,7 @@ public class BugDomainService implements IBugDomainService {
     @Override
     public void appointBugTester(UUID bugId, UUID qaId) {
         User qa = userRepository.findById(qaId)
-                .filter(user -> user.getRoles().contains(UserRoles.ROLE_QA))
+                .filter(user -> user.getRole().contains(UserRole.ROLE_QA))
                 .orElseThrow();
         Bug bug = bugRepository.findById(bugId)
                 .filter(itBug -> itBug.getReviewer() == null)

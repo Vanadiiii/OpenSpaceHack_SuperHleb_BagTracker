@@ -1,6 +1,6 @@
 package com.example.demo.domain.entity;
 
-import com.example.demo.enums.UserRoles;
+import com.example.demo.enums.UserRole;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,9 +24,10 @@ public class User {
     @GeneratedValue(generator = "uuid2")
     @Type(type = "uuid-char")
     private UUID id;
-    @Enumerated
-    @ElementCollection
-    private Set<UserRoles> roles;
+    @Enumerated(EnumType.STRING)
+    @ElementCollection(targetClass = UserRole.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "usr_role", joinColumns = @JoinColumn(name = "user_id"))
+    private Set<UserRole> role;
     private String mail;
     private String phone;
     private String fio;

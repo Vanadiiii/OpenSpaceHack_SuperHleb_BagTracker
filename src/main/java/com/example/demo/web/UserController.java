@@ -36,6 +36,6 @@ public class UserController {
     ) {
         User user = userUserDtoMapper.apply(userDto);
         userService.updateUser(userId, user);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.status(201).build();
     }
 }

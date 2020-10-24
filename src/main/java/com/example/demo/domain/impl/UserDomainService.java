@@ -35,7 +35,7 @@ public class UserDomainService implements IUserDomainService {
 
     @Override
     public void update(UUID userId, User user) {
-        userRepository.save(userPatcher.apply(user, getUser(userId)));
+        userRepository.save(userPatcher.apply(getUser(userId), user));
     }
 
     @Override
