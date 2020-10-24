@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    VARCHAR(36)
+    <changeSet id="2020-10-24--01-init-db" author="neliseev">
+        <createTable tableName="bug">
+            <column name="id" type="VARCHAR(36)">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="product_type" type="varchar(36)"/>
+            <column name="creation_data" type="datetime(36)"/>
+            <column name="phone_model" type="varchar(256)"/>
+            <column name="os_version" type="varchar(36)"/>
+            <column name="product_version" type="varchar(64)"/>
+            <column name="screen_url" type="varchar(256)"/>
+            <column name="author_id" type="varchar(36)"/>
+            <column name="reviewer_id" type="varchar(36)"/>
+            <column name="status" type="varchar(64)"/>
+            <column name="cost" type="integer"/>
+        </createTable>
+
+        <createTable tableName="">
+            <column name=""></column>
+        </createTable>
+    </changeSet>
+
+</databaseChangeLog>
+
+
+        private UUID id;
+        private ProductType productType;
+        private LocalDateTime creationData;
+        private String phoneModel;
+        private String osVersion;
+        private String productVersion;
+        @OneToMany
+        private List<PlaybackStep>playbackSteps;
+private String screenUrl;
+@Enumerated(value = EnumType.STRING)
+private BugStatus bugStatus;
+@ManyToOne
+private User author;
+@ManyToOne
+private User reviewer;
+@OneToMany
+private List
+<Comment>comments;
+    private Integer cost;
