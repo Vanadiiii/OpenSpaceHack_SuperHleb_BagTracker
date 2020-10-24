@@ -1,10 +1,9 @@
 package com.example.demo.domain.repository;
 
-import com.example.demo.domain.entity.User;
+import com.example.demo.domain.entity.Message;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.UUID;
 
-public interface UserRepository extends JpaRepository<User, UUID> {
-
+public interface ChatRepository extends JpaRepository<Message, UUID> {
 }
