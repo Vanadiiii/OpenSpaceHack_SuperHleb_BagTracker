@@ -48,6 +48,6 @@ public class Bug {
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "user_id")
     private List<Comment> comments;
-    private Integer cost;
+    private Long cost;
     private Boolean isDuplicate;
 }

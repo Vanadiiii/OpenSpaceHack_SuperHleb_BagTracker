@@ -9,6 +9,7 @@ public class CalculationCostDomainService implements ICalculationCostDomainServi
 
     @Override
     public Bug calculation(Bug bug) {
+        bug.setCost(bug.getBugType().getCost() + bug.getBugStatus().getCost());
         return bug;
     }
 }
