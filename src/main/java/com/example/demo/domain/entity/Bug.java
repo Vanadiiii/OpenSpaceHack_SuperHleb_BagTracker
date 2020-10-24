@@ -2,6 +2,7 @@ package com.example.demo.domain.entity;
 
 import com.example.demo.enums.BugStatus;
 import com.example.demo.enums.ProductType;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
@@ -22,6 +23,7 @@ import java.util.UUID;
 @Data
 @Entity
 @Table(name = "bug")
+@Builder
 @NoArgsConstructor
 public class Bug {
     @Id

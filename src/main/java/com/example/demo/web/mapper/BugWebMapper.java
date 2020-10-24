@@ -1,4 +1,4 @@
-package com.example.demo.web.mappers;
+package com.example.demo.web.mapper;
 
 import com.example.demo.domain.entity.Bug;
 import com.example.demo.web.dto.BugDto;
