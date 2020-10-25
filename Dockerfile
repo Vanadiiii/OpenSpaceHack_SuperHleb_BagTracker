@@ -6,5 +6,5 @@ COPY ${WAR_FILE} app.war
 
 EXPOSE 8080
 
-CMD java -jar app.war --spring.datasource.url=$DB_URL --spring.datasource.username=$DB_USER --spring.datasource.password=$DB_PWD
+CMD java -jar app.war
 
