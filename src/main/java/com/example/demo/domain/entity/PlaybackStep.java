@@ -5,11 +5,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.UUID;
 
 @Data
@@ -22,6 +18,7 @@ public class PlaybackStep {
     @GeneratedValue(generator = "uuid2")
     @Type(type = "uuid-char")
     private UUID id;
+    @Column(name = "ordr")
     private Integer order;
     @ManyToOne
     private Bug bug;

@@ -70,7 +70,21 @@
             <column name="text" type="varchar(2048)"/>
             <column name="create_date" type="TIMESTAMP WITHOUT TIME ZONE"/>
         </createTable>
+        <createTable tableName="playback_step">
+            <column name="id" type="varchar(36)">
+                <constraints primaryKey="true" unique="true" nullable="false"/>
+            </column>
+            <column name="ordr" type="integer"/>
+            <column name="bug_id" type="varchar(36)"/>
+            <column name="text" type="varchar(2048)"/>
+        </createTable>
 
+        <addForeignKeyConstraint
+                baseTableName="playback_step"
+                baseColumnNames="bug_id"
+                constraintName="bug_step_fk"
+                referencedTableName="bug"
+                referencedColumnNames="id"/>
         <addForeignKeyConstraint
                 baseTableName="achievement"
                 baseColumnNames="user_id"
